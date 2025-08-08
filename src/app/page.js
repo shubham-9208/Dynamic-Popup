@@ -1,22 +1,24 @@
 'use client'
 
+import Dashboard from "@/Component/Dashboard";
 import PreviewPopup from "@/Component/PreviewPopup";
-import Tiptap from "@/Component/TipTap";
 import { useState } from "react";
 
 
 export default function Home() {
   const [passdata, setpassdata] = useState('')
-   const [secondData, setsecondData] = useState('')
+  const [secondData, setsecondData] = useState('')
+  const [img, setimg] = useState()
+  const [on, seton] = useState(false)
+  const [color, setcolor] = useState()
   return (
     <div className=" flex justify-center bg-black items-center w-[100%] h-[100%] ">
-      <div className=" w-[50%] bg-red-400 h-[100vh] gap-5 flex flex-col justify-center items-center">
-        {/* <Dashboard passdata={passdata} setpassdata={setpassdata} /> */}
-        <Tiptap passdata={passdata} setpassdata={setpassdata}/>
-        <Tiptap passdata={secondData} setpassdata={setsecondData}/>
+      <div className=" w-[50%] h-[100vh] gap-5 flex flex-col justify-center items-center">
+        <Dashboard setimg={setimg} passdata={passdata} setpassdata={setpassdata} secondData={secondData} setsecondData={setsecondData}  on={on} seton={seton} setcolor={setcolor}/>
       </div>
-      <div className=" w-[50%] h-[100%] bg-amber-500 flex justify-center items-center">
-        <PreviewPopup passdata={passdata} secondData={secondData}/>
+      
+      <div className="  w-[50%] h-[100vh] flex justify-center items-center">
+        <PreviewPopup passdata={passdata} secondData={secondData} img={img} on={on} color={color} />
       </div>
     </div>
   );
