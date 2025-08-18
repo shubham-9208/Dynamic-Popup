@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import React, { useEffect } from 'react'
+import { RxCross2 } from "react-icons/rx";
 
 
 function PreviewPopup({ state, setState }) {
@@ -94,14 +95,16 @@ function PreviewPopup({ state, setState }) {
                             className=" overflow-hidden h-full w-full"
                         >
                             {/* Close Button */}
+
                             <button
                                 onClick={() => setState(prev => ({ ...prev, on: false }))}
-                                className="absolute cursor-pointer -top-7 z-50 -right-3 text-red-500 text-4xl font-bold focus:outline-none"
+                                className="absolute cursor-pointer -top-4 z-50 -right-3 text-red-500 text-3xl font-extrabold bg-white rounded-full w-[35px] h-[35px] flex justify-center items-center"
                             >
-                                ×
+                                <RxCross2 />
                             </button>
 
-                            <div className={`flex justify-center items-center ${flexDirectionClass}`}>
+
+                            <div className={`flex justify-center h-full w-full items-center ${flexDirectionClass}`}>
                                 {/* Image */}
                                 {state.img && (
                                     <div className="">
@@ -116,11 +119,8 @@ function PreviewPopup({ state, setState }) {
                                 )}
 
                                 {/* Text Content */}
-                                <div>
+                                <div className=' flex flex-col justify-center items-center'>
                                     <div dangerouslySetInnerHTML={{ __html: state.passdata }} />
-
-                                    {/* Divider */}
-                                    <hr className="my-4 border-[#7d5a3f] w-1/2 mx-auto" />
 
                                     {/* Subtitle */}
                                     <div dangerouslySetInnerHTML={{ __html: state.secondData }} />
